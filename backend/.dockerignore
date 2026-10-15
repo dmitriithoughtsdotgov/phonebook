@@ -1,0 +1,8 @@
+build/
+.gradle/
+target/
+.idea/
+.vscode/
+*.iml
+Dockerfile
+.dockerignore

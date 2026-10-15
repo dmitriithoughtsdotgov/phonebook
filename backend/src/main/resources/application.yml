@@ -1,0 +1,34 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: phonebook-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/phonebook}
+    username: ${DB_USER:phonebook}
+    password: ${DB_PASSWORD:phonebook}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mvc:
+    problemdetails:
+      enabled: true
+
+app:
+  security:
+    # Value of the "iss" claim, i.e. the URL the browser uses to reach Keycloak.
+    issuer: ${KEYCLOAK_ISSUER:http://localhost:8080/realms/phonebook}
+    # Where the backend downloads signing keys from (inside Docker: http://keycloak:8080/...).
+    jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8080/realms/phonebook/protocol/openid-connect/certs}
+    audience: ${KEYCLOAK_AUDIENCE:phonebook-backend}
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
