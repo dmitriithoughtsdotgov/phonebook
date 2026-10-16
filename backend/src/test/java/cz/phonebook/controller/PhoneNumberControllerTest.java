@@ -60,4 +60,17 @@ class PhoneNumberControllerTest {
 
         verifyNoInteractions(service);
     }
+
+    @Test
+    void digitsThatAreNotARealNumberAreRejected() throws Exception {
+        mvc.perform(post("/api/phones").with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"number": "234234", "visibility": "PRIVATE"}
+                                """))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors.number").exists());
+
+        verifyNoInteractions(service);
+    }
 }

@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # ---- build stage ----
-FROM eclipse-temurin:17-jdk AS build
+# The jar is platform independent, so it is built once on the builder's own platform
+# even when the image is built for several (see platforms in .github/workflows/ci.yml).
+FROM --platform=$BUILDPLATFORM eclipse-temurin:21-jdk AS build
 WORKDIR /workspace
 
 # Resolve dependencies first so this layer is cached until the build files change.
@@ -14,7 +16,7 @@ COPY src src
 RUN ./gradlew bootJar --no-daemon -x test
 
 # ---- runtime stage ----
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 RUN groupadd --system app && useradd --system --gid app app

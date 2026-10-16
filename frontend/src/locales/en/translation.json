@@ -1,0 +1,73 @@
+{
+  "app": {
+    "title": "Phone book",
+    "description": "Manage phone numbers"
+  },
+  "language": {
+    "label": "Language",
+    "cs": "Čeština",
+    "en": "English"
+  },
+  "auth": {
+    "login": "Sign in",
+    "logout": "Sign out",
+    "redirecting": "Redirecting to sign in…",
+    "loggedOut": "You have been signed out.",
+    "loginPrompt": "Sign in to view and add phone numbers.",
+    "sessionExpired": "Your session has expired, please sign in again."
+  },
+  "home": {
+    "addTitle": "Add number",
+    "savedTitle": "Saved numbers"
+  },
+  "form": {
+    "number": "Phone number *",
+    "numberPlaceholder": "+420 777 123 456",
+    "label": "Description",
+    "labelPlaceholder": "e.g. Office",
+    "visibility": "Visibility",
+    "private": "Personal list",
+    "privateHint": "(only I can see it)",
+    "shared": "Shared list",
+    "sharedHint": "(visible to all signed-in users)",
+    "submit": "Add number",
+    "submitting": "Saving…",
+    "saved": "The number has been saved.",
+    "checkInput": "Please check the entered details.",
+    "saveFailed": "The number could not be saved. Please try again later."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "invalid": "Invalid value.",
+    "oneOf": "Choose one of the options.",
+    "format": "The value has an invalid format.",
+    "phone": "Enter a valid phone number, e.g. +420 777 123 456.",
+    "email": "Enter a valid email address.",
+    "url": "Enter a valid URL.",
+    "length_one": "Must be exactly {{count}} character long.",
+    "length_other": "Must be exactly {{count}} characters long.",
+    "minLength_one": "Must be at least {{count}} character long.",
+    "minLength_other": "Must be at least {{count}} characters long.",
+    "maxLength_one": "Can be at most {{count}} character long.",
+    "maxLength_other": "Can be at most {{count}} characters long.",
+    "min": "Must be at least {{min}}.",
+    "max": "Can be at most {{max}}.",
+    "integer": "Must be a whole number."
+  },
+  "list": {
+    "filters": {
+      "all": "All",
+      "private": "Personal",
+      "shared": "Shared"
+    },
+    "visibility": {
+      "PRIVATE": "Personal",
+      "SHARED": "Shared"
+    },
+    "empty": "There are no numbers here yet.",
+    "loading": "Loading numbers…",
+    "loadFailed": "The numbers could not be loaded. Please try again later.",
+    "addedBy": "added by {{owner}}, {{date}}",
+    "me": "me"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "Telefonní seznam",
+    "description": "Správa telefonních čísel"
+  },
+  "language": {
+    "label": "Jazyk",
+    "cs": "Čeština",
+    "en": "English"
+  },
+  "auth": {
+    "login": "Přihlásit se",
+    "logout": "Odhlásit se",
+    "redirecting": "Přesměrovávám na přihlášení…",
+    "loggedOut": "Byli jste odhlášeni.",
+    "loginPrompt": "Pro zobrazení a přidávání telefonních čísel se přihlaste.",
+    "sessionExpired": "Přihlášení vypršelo, přihlaste se prosím znovu."
+  },
+  "home": {
+    "addTitle": "Přidat číslo",
+    "savedTitle": "Uložená čísla"
+  },
+  "form": {
+    "number": "Telefonní číslo *",
+    "numberPlaceholder": "+420 777 123 456",
+    "label": "Popis",
+    "labelPlaceholder": "např. Kancelář",
+    "visibility": "Viditelnost",
+    "private": "Osobní seznam",
+    "privateHint": "(vidím jen já)",
+    "shared": "Společný seznam",
+    "sharedHint": "(vidí všichni přihlášení)",
+    "submit": "Přidat číslo",
+    "submitting": "Ukládám…",
+    "saved": "Číslo bylo uloženo.",
+    "checkInput": "Zkontrolujte prosím zadané údaje.",
+    "saveFailed": "Číslo se nepodařilo uložit. Zkuste to prosím později."
+  },
+  "validation": {
+    "required": "Toto pole je povinné.",
+    "invalid": "Neplatná hodnota.",
+    "oneOf": "Vyberte jednu z možností.",
+    "format": "Hodnota nemá správný formát.",
+    "phone": "Zadejte platné telefonní číslo, např. +420 777 123 456.",
+    "email": "Zadejte platnou e-mailovou adresu.",
+    "url": "Zadejte platnou adresu URL.",
+    "length_one": "Musí mít přesně {{count}} znak.",
+    "length_few": "Musí mít přesně {{count}} znaky.",
+    "length_other": "Musí mít přesně {{count}} znaků.",
+    "minLength_one": "Musí mít alespoň {{count}} znak.",
+    "minLength_few": "Musí mít alespoň {{count}} znaky.",
+    "minLength_other": "Musí mít alespoň {{count}} znaků.",
+    "maxLength_one": "Může mít nejvýše {{count}} znak.",
+    "maxLength_few": "Může mít nejvýše {{count}} znaky.",
+    "maxLength_other": "Může mít nejvýše {{count}} znaků.",
+    "min": "Musí být alespoň {{min}}.",
+    "max": "Může být nejvýše {{max}}.",
+    "integer": "Musí být celé číslo."
+  },
+  "list": {
+    "filters": {
+      "all": "Vše",
+      "private": "Osobní",
+      "shared": "Společné"
+    },
+    "visibility": {
+      "PRIVATE": "Osobní",
+      "SHARED": "Společné"
+    },
+    "empty": "Zatím zde nejsou žádná čísla.",
+    "loading": "Načítám čísla…",
+    "loadFailed": "Čísla se nepodařilo načíst. Zkuste to prosím později.",
+    "addedBy": "přidal(a) {{owner}}, {{date}}",
+    "me": "já"
+  }
+}

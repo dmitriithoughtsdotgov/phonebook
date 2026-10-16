@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * End-to-end check of the core business rule against a real PostgreSQL (with Flyway migrations):
- * private numbers are visible only to their owner, shared numbers to everyone.
+ * private numbers are visible only to their owner, shared numbers to everyone; numbers are stored in E.164.
  */
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,13 +44,25 @@ class PhoneNumberVisibilityIT {
 
         mvc.perform(get("/api/phones").with(user("alice-id", "alice")))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[*].number", containsInAnyOrder("+420 777 111 222", "+420 602 333 444")));
+                .andExpect(jsonPath("$[*].number", containsInAnyOrder("+420777111222", "+420602333444")));
 
         mvc.perform(get("/api/phones").with(user("bob-id", "bob")))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[*].number", containsInAnyOrder("+420 731 555 666", "+420 602 333 444")))
-                .andExpect(jsonPath("$[?(@.number == '+420 602 333 444')].ownerUsername", contains("alice")))
-                .andExpect(jsonPath("$[?(@.number == '+420 602 333 444')].mine", contains(false)));
+                .andExpect(jsonPath("$[*].number", containsInAnyOrder("+420731555666", "+420602333444")))
+                .andExpect(jsonPath("$[?(@.number == '+420602333444')].ownerUsername", contains("alice")))
+                .andExpect(jsonPath("$[?(@.number == '+420602333444')].mine", contains(false)));
+    }
+
+    @Test
+    void numbersAreStoredInE164HoweverTheyWereTyped() throws Exception {
+        mvc.perform(post("/api/phones").with(user("carol-id", "carol"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"number": " 00420 777 123 456 ", "visibility": "PRIVATE"}
+                                """))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.number").value("+420777123456"))
+                .andExpect(jsonPath("$.createdAt").exists());
     }
 
     private void create(RequestPostProcessor user, String number, String visibility) throws Exception {

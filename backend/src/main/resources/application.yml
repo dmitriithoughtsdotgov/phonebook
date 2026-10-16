@@ -25,7 +25,6 @@ app:
     # Where the backend downloads signing keys from (inside Docker: http://keycloak:8080/...).
     jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8080/realms/phonebook/protocol/openid-connect/certs}
     audience: ${KEYCLOAK_AUDIENCE:phonebook-backend}
-    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
 
 management:
   endpoints:

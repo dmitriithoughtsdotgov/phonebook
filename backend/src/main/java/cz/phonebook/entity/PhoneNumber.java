@@ -23,6 +23,7 @@ public class PhoneNumber {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /** Always in E.164 form, e.g. {@code +420777123456}. */
     @Column(nullable = false, length = 32, updatable = false)
     private String number;
 
@@ -39,6 +40,7 @@ public class PhoneNumber {
     @Column(name = "owner_username", nullable = false, updatable = false)
     private String ownerUsername;
 
+    /** Set by the application only; the column deliberately has no database default. */
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
